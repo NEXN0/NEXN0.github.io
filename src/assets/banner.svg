@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2=".15" y2="1">
+      <stop offset="0" stop-color="#c9dcff"/>
+      <stop offset=".26" stop-color="#dde6ff"/>
+      <stop offset=".48" stop-color="#efeafb"/>
+      <stop offset=".68" stop-color="#fbe7ea"/>
+      <stop offset=".84" stop-color="#fdeee0"/>
+      <stop offset="1" stop-color="#fff6e9"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#ffd3a0" stop-opacity=".95"/>
+      <stop offset=".45" stop-color="#ffc9a8" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ffc9a8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3d6"/>
+      <stop offset="1" stop-color="#ffc79b"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#8fb4ff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#8fb4ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9c8f2" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#cfd9f7" stop-opacity=".55"/>
+    </linearGradient>
+    <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#93a7dd" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#aab9e8" stop-opacity=".6"/>
+    </linearGradient>
+    <linearGradient id="h3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6d80bd"/>
+      <stop offset="1" stop-color="#8896cd" stop-opacity=".75"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".06"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#glowBlue)"/>
+
+  <!-- 大光晕 -->
+  <g filter="url(#soft)">
+    <circle cx="1420" cy="430" r="330" fill="url(#sunGlow)"/>
+    <ellipse cx="420" cy="230" rx="400" ry="260" fill="#ffffff" opacity=".38"/>
+    <ellipse cx="780" cy="150" rx="360" ry="180" fill="#ffffff" opacity=".28"/>
+    <ellipse cx="1660" cy="760" rx="380" ry="220" fill="#ffd9e2" opacity=".3"/>
+  </g>
+
+  <!-- 太阳 -->
+  <circle cx="1420" cy="418" r="118" fill="url(#sun)"/>
+  <circle cx="1420" cy="418" r="118" fill="none" stroke="#fff6e2" stroke-opacity=".7" stroke-width="2"/>
+
+  <!-- 云 -->
+  <g filter="url(#soft2)" fill="#ffffff">
+    <ellipse cx="330" cy="330" rx="230" ry="42" opacity=".55"/>
+    <ellipse cx="470" cy="372" rx="170" ry="30" opacity=".4"/>
+    <ellipse cx="1180" cy="230" rx="200" ry="34" opacity=".38"/>
+    <ellipse cx="1620" cy="300" rx="240" ry="38" opacity=".32"/>
+    <ellipse cx="980" cy="470" rx="260" ry="30" opacity=".28"/>
+  </g>
+
+  <!-- 远山 -->
+  <path d="M0 800 C 200 742, 360 770, 520 738 C 700 702, 840 744, 1010 780 C 1180 816, 1330 742, 1520 752 C 1700 762, 1810 792, 1920 776 L1920 1080 L0 1080 Z" fill="url(#h1)"/>
+  <path d="M0 878 C 190 838, 350 862, 540 828 C 760 788, 900 836, 1110 870 C 1330 906, 1480 838, 1660 856 C 1800 870, 1870 892, 1920 886 L1920 1080 L0 1080 Z" fill="url(#h2)"/>
+  <path d="M0 964 C 240 926, 430 962, 660 942 C 900 920, 1070 972, 1300 992 C 1520 1010, 1720 966, 1920 976 L1920 1080 L0 1080 Z" fill="url(#h3)"/>
+
+  <!-- 飞鸟 -->
+  <g stroke="#5d6690" stroke-opacity=".45" stroke-width="2.4" fill="none" stroke-linecap="round">
+    <path d="M760 300c10-9 18-9 27 0 9-9 17-9 26 0"/>
+    <path d="M858 258c8-7 14-7 21 0 7-7 13-7 20 0"/>
+    <path d="M690 246c6-5 11-5 16 0 5-5 10-5 15 0"/>
+  </g>
+
+  <!-- 高光弧线 -->
+  <g stroke="#ffffff" stroke-opacity=".35" fill="none" stroke-width="1.3">
+    <path d="M100 560 C 420 500, 760 604, 1080 546 C 1360 496, 1620 540, 1820 512"/>
+    <path d="M100 606 C 430 552, 770 650, 1090 594 C 1370 546, 1630 586, 1820 560" stroke-opacity=".22"/>
+  </g>
+
+  <rect width="1920" height="1080" filter="url(#grain)" opacity=".55" fill="#7d87ab"/>
+</svg>

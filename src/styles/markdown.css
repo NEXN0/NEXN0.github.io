@@ -1,0 +1,354 @@
+/* =====================================================================
+   正文排版 & 代码块 & 提示块（文章内容区）
+   ===================================================================== */
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-90);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.prose > *:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  margin: 1.05em 0;
+  color: var(--text-75);
+}
+
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  position: relative;
+  margin: 2em 0 0.8em;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-90);
+  scroll-margin-top: calc(var(--navbar-h) + 1.5rem);
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  padding-left: 0.85rem;
+}
+
+.prose h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.38em;
+  width: 0.22rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--primary);
+}
+
+.prose h3 {
+  font-size: 1.22rem;
+}
+
+.prose h4 {
+  font-size: 1.06rem;
+}
+
+.prose h5,
+.prose h6 {
+  font-size: 1rem;
+  color: var(--text-75);
+}
+
+.prose a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease, text-decoration-color 0.15s ease;
+  border-radius: 2px;
+}
+
+.prose a:hover {
+  background-color: var(--link-hover);
+  text-decoration-color: var(--primary);
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--text-90);
+}
+
+.prose del {
+  color: var(--text-50);
+}
+
+.prose ul,
+.prose ol {
+  margin: 1em 0;
+  padding-left: 1.5rem;
+  color: var(--text-75);
+}
+
+.prose li {
+  margin: 0.4em 0;
+}
+
+.prose li > ul,
+.prose li > ol {
+  margin: 0.35em 0;
+}
+
+.prose ul > li::marker {
+  color: var(--primary);
+}
+
+.prose ol > li::marker {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.prose hr {
+  margin: 2.2rem auto;
+  border: 0;
+  border-top: 1px dashed var(--line-color);
+  width: 100%;
+}
+
+.prose img {
+  margin: 1.3rem auto;
+  border-radius: var(--radius-mid);
+  max-width: 100%;
+  height: auto;
+}
+
+.prose blockquote {
+  margin: 1.3em 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 3px solid var(--primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background-color: var(--btn-plain-bg-hover);
+  color: var(--text-60);
+}
+
+.prose blockquote p {
+  margin: 0.25em 0;
+  color: inherit;
+}
+
+.prose blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.prose blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+.prose code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  padding: 0.16em 0.42em;
+  border-radius: 0.35rem;
+  background-color: var(--inline-code-bg);
+  color: var(--inline-code-color);
+  word-break: break-word;
+}
+
+.prose .code-block code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-size: 0.86rem;
+  word-break: normal;
+}
+
+.prose pre {
+  margin: 0;
+  padding: 1rem 1.15rem 1.1rem;
+  overflow-x: auto;
+  line-height: 1.65;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--codeblock-color);
+  background-color: var(--codeblock-bg);
+  tab-size: 2;
+}
+
+.code-block {
+  margin: 1.4em 0;
+  border-radius: var(--radius-mid);
+  overflow: hidden;
+  background-color: var(--codeblock-bg);
+}
+
+.code-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.85rem;
+  background-color: var(--codeblock-topbar-bg);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.74rem;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.code-lang {
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+}
+
+.code-copy {
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.3rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.code-copy:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.code-copy.is-copied {
+  color: oklch(0.85 0.16 150);
+}
+
+.prose .table-wrapper {
+  margin: 1.4em 0;
+  overflow-x: auto;
+  border-radius: var(--radius-mid);
+  border: 1px solid var(--line-divider);
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.prose th,
+.prose td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--line-divider);
+  text-align: left;
+}
+
+.prose th {
+  background-color: var(--btn-plain-bg-hover);
+  font-weight: 700;
+  color: var(--text-90);
+  white-space: nowrap;
+}
+
+.prose tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.prose tbody tr:hover {
+  background-color: var(--btn-plain-bg-hover);
+}
+
+/* ------------------------------------------------------------- admonition */
+.admonition {
+  margin: 1.4em 0;
+  border-radius: var(--radius-mid);
+  border: 1px solid transparent;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.95rem;
+}
+
+.admonition-title {
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.admonition-body > *:first-child {
+  margin-top: 0;
+}
+
+.admonition-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.admonition-body p {
+  margin: 0.4em 0;
+  color: inherit;
+}
+
+.admonition-note {
+  --adm: oklch(0.7 0.14 250);
+  border-color: color-mix(in oklch, var(--adm) 35%, transparent);
+  background-color: color-mix(in oklch, var(--adm) 10%, var(--card-bg));
+}
+
+.admonition-tip {
+  --adm: oklch(0.72 0.14 180);
+  border-color: color-mix(in oklch, var(--adm) 35%, transparent);
+  background-color: color-mix(in oklch, var(--adm) 10%, var(--card-bg));
+}
+
+.admonition-important {
+  --adm: oklch(0.7 0.14 310);
+  border-color: color-mix(in oklch, var(--adm) 35%, transparent);
+  background-color: color-mix(in oklch, var(--adm) 10%, var(--card-bg));
+}
+
+.admonition-warning {
+  --adm: oklch(0.75 0.15 75);
+  border-color: color-mix(in oklch, var(--adm) 40%, transparent);
+  background-color: color-mix(in oklch, var(--adm) 12%, var(--card-bg));
+}
+
+.admonition-caution {
+  --adm: oklch(0.65 0.19 25);
+  border-color: color-mix(in oklch, var(--adm) 35%, transparent);
+  background-color: color-mix(in oklch, var(--adm) 10%, var(--card-bg));
+}
+
+.admonition .admonition-title {
+  color: var(--adm);
+}
+
+/* about page specifics */
+.about-card .prose {
+  font-size: 0.98rem;
+}
+
+.about-head {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1.4rem;
+}
+
+.about-avatar {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-mid);
+  overflow: hidden;
+  flex: none;
+}
+
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.about-sub {
+  font-size: 0.85rem;
+  color: var(--text-50);
+  margin-top: 0.15rem;
+}
